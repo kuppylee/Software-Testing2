@@ -4,7 +4,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.io.FileHandler;
 
 import javax.swing.plaf.FileChooserUI;
 import java.io.File;
@@ -23,7 +23,7 @@ public class Miscelleanous {
         // login page- verify login url
         driver.get("http://google.com");
         File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(src,new File("C:\\Users\\udemy_selenium_webdriver\\screenshot.png"));
+        FileHandler.copy(src,new File("C:\\Users\\udemy_selenium_webdriver\\screenshot.png"));
 
 
 

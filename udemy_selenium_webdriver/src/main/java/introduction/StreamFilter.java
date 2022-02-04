@@ -22,9 +22,8 @@ public class StreamFilter {
     public static void main(String[] args) {
 
 // TODO Auto-generated method stub
-
-        System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
-
+        System.setProperty("webdriver.chrome.driver",
+                "/Users/decagon/Desktop/SoftwareTesting_2/Software-Testing2/udemy_selenium_webdriver/src/chromeResources/chromedriver2");
         WebDriver driver=new ChromeDriver();
 
         driver.get("https://rahulshettyacademy.com/greenkart/#/offers");
