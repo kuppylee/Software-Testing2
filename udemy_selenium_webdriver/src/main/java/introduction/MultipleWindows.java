@@ -1,20 +1,20 @@
 package introduction;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import static org.openqa.selenium.support.locators.RelativeLocator.*;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 public class MultipleWindows {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         System.setProperty("webdriver.chrome.driver",
                 "/Users/decagon/Desktop/SoftwareTesting_2/Software-Testing2/udemy_selenium_webdriver/src/chromeResources/chromedriver2");
         WebDriver driver = new ChromeDriver();
@@ -35,8 +35,11 @@ public class MultipleWindows {
         }
         System.out.println(firstCourse);
         driver.switchTo().window(parentId);
-        driver.findElement(By.cssSelector("[name='name']")).sendKeys(firstCourse);
-        driver.quit();
+        WebElement nameInput = driver.findElement(By.cssSelector("[name='name']"));
+        nameInput.sendKeys(firstCourse);
+        File fileName = nameInput.getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(fileName, new File("logo.png"));
+//        driver.quit();
     }
 
 }
