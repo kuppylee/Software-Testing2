@@ -37,8 +37,14 @@ public class MultipleWindows {
         driver.switchTo().window(parentId);
         WebElement nameInput = driver.findElement(By.cssSelector("[name='name']"));
         nameInput.sendKeys(firstCourse);
+        // screenshot
         File fileName = nameInput.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(fileName, new File("logo.png"));
+
+        // get height and width
+        int height = nameInput.getRect().getDimension().getHeight();
+        int width = nameInput.getRect().getDimension().getWidth();
+        System.out.println("The height of the inputName webElement is :" + height + " and the width is :" + width + ".");
 //        driver.quit();
     }
 
